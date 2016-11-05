@@ -1,0 +1,54 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+             <form method="post" action="/product/edit/<%=data[0].productid%>">
+                <table cellpadding="11">
+                <tr>
+                <td class="label">category</td>
+                    <td>
+                        <select name="catid">
+                        <% for(var i = 0; i < data1.length; i++) { %>
+                            <option value = "<%= data1[i].catid %>" <%= data1[i].catid == data[0].catid ? 'selected':'' %> > <%= data1[i].name %> </option>
+                        <%  } %>
+                        </select>
+                    </td>
+                </tr>
+                 <tr>
+                    <td class="label">name</td><td>: <input type="text" name="name" value="<%=data[0].name%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">description</td><td>: <input type="text" name="description" value="<%=data[0].description%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">price</td><td>: <input type="text" name="price" value="<%=data[0].price%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">quantity</td><td>: <input type="text" name="quantity" value="<%=data[0].quantity%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">existingimage :</td><td> <img src="<%= "/images/" + data[0].image %>"  height="200" width="200"/></td>
+                 </tr>
+                 <tr>
+                    <td class="label">updateimage</td><td>: <input type="file" name="myimage" ></td>
+
+                 </tr>
+                 
+                 <tr>
+                    <td class="label">status</td><td>: <input type="checkbox"  value='active' <% if (data[0].status == 'active') { %> checked <% } %>  name="active" ></td>
+                 </tr>
+
+               
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>

@@ -1,0 +1,63 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+            <form method="post" action="/product/add">
+
+                <table cellpadding="11">
+                <tr>
+                <td class="label">category</td>
+                    <td>
+                        <select name="catid">
+                        <% for(var i = 0; i < data.length; i++) { %>
+                            <option value = "<%= data[i].catid %>"> <%= data[i].name %> </option>
+                        <%  } %>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="label">name</td>
+                    <td>: <input type="text" name="name" required></td>
+                 </tr>
+                        <br>
+                  
+                  <tr>
+                    <td class="label">description</td>
+                    <td>: <textarea rows="5" name="description" required></textarea> </td>
+                 </tr>
+                        <br>
+                 
+                 <tr>
+                    <td class="label">price</td>
+                    <td>: <input type="text" name="price" required></td>
+                </tr>
+                
+                 <tr>
+                    <td class="label">quantity</td>
+                    <td>: <input type="text" name="quantity" required></td>
+                </tr>
+                   
+                 <tr>
+                    <td class="label">image</td><td>: <input type="file" name="image"  accept = "image/*" required></td>
+                </tr>
+                  <tr>
+                    <td class="label"></td>
+                    <td>status : <input type="checkbox" name="active" value="active" required></td>
+                </tr>
+                    <br> 
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>
+
+

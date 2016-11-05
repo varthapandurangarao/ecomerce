@@ -1,0 +1,29 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+             <form method="post" action="/category/edit/<%=data[0].catid%>">
+                <table cellpadding="11">
+                <tr>
+                    <td class="label">name</td><td>: <input type="text" name="name" value="<%=data[0].name%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">description</td><td>: <textarea rows="5" name="description" required></textarea> </td>
+                 </tr>
+                <tr>
+                    <td class="label">status</td><td>: <input type="checkbox"  value='active' <% if (data[0].status == 'active') { %> checked <% } %>  name="active" ></td>
+                 </tr>
+               
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>

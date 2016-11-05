@@ -1,0 +1,52 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="addcategory();">+ Add</button>
+         </div>
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+             <tr>
+             <th width="50px">No</th>
+             <th>catid</th>
+            <th>name</th>
+		    <th>description</th>
+		    <th>createdon</th>
+            <th>updatedon</th>
+            <th>status</th>
+		  <th width="120px">Action</th>
+            </tr>
+                   <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].catid%></td>
+                    <td><%=data[i].name%></td>
+                    <td><%=data[i].description%></td>
+                    <td><%=data[i].createdon%></td>
+                    <td><%=data[i].updatedon%></td>
+                    <td><%=data[i].status%></td>
+                    <td>             
+                
+                        <a class="a-inside edit" href="../category/edit/<%=data[i].catid%>">Edit</a>
+                       
+                        <a class="a-inside delete" href="../category/delete/<%=data[i].catid%>">Delete</a>
+                       
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No category</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>

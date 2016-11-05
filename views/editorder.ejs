@@ -1,0 +1,52 @@
+<%- include layouts/header.ejs %>
+
+<div class="page-data">
+	<form method="post" action="/orders/edit/<%=data[0].orderid%>">
+		<table cellpadding="11">
+		<tr>
+                <td class="label">product</td>
+                    <td>
+                        <select name="productid">
+                        <% for(var i = 0; i < data.length; i++) { %>
+                            <option value = "<%= data[i].productid %>"> <%= data[i].name %> </option>
+                        <%  } %>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                <td class="label">user</td>
+                    <td>
+                        <select name="userid">
+                        <% for(var i = 0; i < data.length; i++) { %>
+                            <option value = "<%= data[i].userid %>"> <%= data[i].name %> </option>
+                        <%  } %>
+                        </select>
+                    </td>
+                </tr>
+			<tr>
+				<td class="label">quantity</td><td>: <input type="text" name="quantity" value="<%=data[0].quantity%>" required></td>
+			</tr>
+			<tr>
+				<td class="label">baseprice</td><td>: <input type="text" name="baseprice" value="<%=data[0].baseprice%>" required></td>
+			</tr>
+			<tr>
+				<td class="label">totalprice</td><td>: <input type="text" name="totalprice" value="<%=data[0].totalprice%>" required></td>
+			</tr>
+			<tr>
+				<td class="label">orderdate</td><td>: <input type="date" name="orderdate" value="<%=data[0].orderdate%>" required></td>
+			</tr>
+			
+			<tr>
+                <td class="label"></td>
+                <td>
+                    &nbsp; <input type="submit" name="submit" value="Save">
+                    <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                 </td>
+            </tr>
+		</table>
+	</form>
+</div>
+<%- include layouts/footer.ejs %>
+
+
+ 

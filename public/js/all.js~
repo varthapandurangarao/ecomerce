@@ -1,0 +1,8 @@
+function addUser(){
+            
+    window.location.href = '/registration/add';
+}
+function cancelAdd(){
+    
+    window.location.href = '/registration';
+}

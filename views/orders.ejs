@@ -1,0 +1,51 @@
+<%- include layouts/header.ejs %>
+
+<div Class="page-data">
+<div Class="data-btn">
+	<button onClick="addOrder();">+ Add Order</button>
+</div>
+<div class="data-table">
+	<table border="2" cellpadding="7" cellspacing="7">
+		<tr>
+			<th width="50px">Id</th>
+			<th>product</th>
+			<th>category</th>
+			<th>user</th>
+			<!-- <th>quantity</th> -->
+			<!-- <th>baseprice</th> -->
+			<th>totalprice</th>
+			<th>orderdate</th>
+            
+            <th>orderstatus</th> 
+			<th width="120px">Action</th>
+		</tr>
+		<% if(data.length){
+			
+             for(var i = 0;i < data.length;i++) { %>
+				
+                <tr>
+					<td align="center"><%= (i+1) %></td>
+					<td align="center"><%= data[i].product %></td>
+					<td align="center"><%= data[i].Category %></td>
+					<td align="center"><%= data[i].user%></td>					
+					<!-- <td align="center"><%= data[i].quantity %></td>
+					<td align="center"><%= data[i].baseprice %></td> -->
+					<td align="center"><%= data[i].totalprice %></td>
+					<td align="center"><%= data[i].orderdate %></td>
+					<td align="center"><%= data[i].orderstatus %></td>
+					<td>
+                        <a class="a-inside delete" href="../orders/delete/<%=data[i].orderid%>">Delete</a>
+                       
+                    </td>
+				</tr>
+		<% } 
+				}else{ %>
+				<tr>
+					<td colspan="3">No Order</td>
+				</tr>
+		<%	} %>	
+	   </table>
+    </div>
+</div>
+
+<%- include layouts/footer.ejs %>
